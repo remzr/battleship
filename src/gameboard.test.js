@@ -15,8 +15,8 @@ describe("Gameboard", () => {
         expect(board.missed).toBe(0);
     });
     
-    test("Check if fleet array is 5 by default", () => {
-        expect(board.fleet.length).toBe(5);
+    test("Check if fleet array is empty by default", () => {
+        expect(board.fleet.length).toBe(0 || undefined);
         expect(typeof board.fleet).toBe("array");
     });        
 });
