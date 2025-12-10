@@ -1,0 +1,26 @@
+body {
+    background-color: navy;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    width: 80vh;
+    height: 80vh;
+}
+
+.gameboard {
+    height: 100%;
+    aspect-ratio: 1;
+    display: flex;
+    flex-wrap: wrap;
+    border: solid 1px salmon;
+}
+
+.gameboard>.field {
+    width: 20%;
+    aspect-ratio: 1;
+    -webkit-box-shadow:inset 0px 0px 0px 1px salmon;
+    -moz-box-shadow:inset 0px 0px 0px 1px salmon;
+    box-shadow:inset 0px 0px 0px 1px salmon;
+}
