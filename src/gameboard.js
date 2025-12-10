@@ -1,1 +1,5 @@
-export const gameBoard = "This is the gameboard";
+export class gameBoard {
+    constructor() {
+        
+    }
+}

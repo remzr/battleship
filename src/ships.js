@@ -1,4 +1,4 @@
-export class ship {
+export class Ship {
     sunk = false;
     hits = 0;
     constructor(length, owner) {
