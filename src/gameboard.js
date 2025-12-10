@@ -1,0 +1,1 @@
+export const gameBoard = "This is the gameboard";

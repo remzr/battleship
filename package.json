@@ -1,0 +1,23 @@
+{
+  "name": "battleship",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "url": "git+https://github.com/remzr/battleship.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/remzr/battleship/issues"
+  },
+  "homepage": "https://github.com/remzr/battleship#readme",
+  "devDependencies": {
+    "webpack": "^5.103.0",
+    "webpack-cli": "^6.0.1"
+  }
+}
