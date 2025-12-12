@@ -3,7 +3,7 @@ import { Ship } from "./ships";
 export class Gameboard {
     fieldAmount = 100;
     fieldsHit = [];
-    fleet = [];
+    fleet = ["1","100","10","20"];
 
     constructor(owner) {
         this.owner = owner;
@@ -49,15 +49,22 @@ export class Gameboard {
 
     receiveAttack(coordinates) {
         //Check if
-        if (this.fieldsHit.includes(coordinates) == true) {
-            console.log("")
+        if (this.fleet.includes(coordinates) == true) {
+            console.log("Its a hit!")
+        } else {
+            console.log("Its a miss...")
         }
     }
 
     squareMarker(coordinates) {
         //Select square
-        const square = document.getElementById(coordinates);
-        console.log(coordinates);
-        //square.innerText = "X";
+        const square = document.getElementById(`${coordinates}`);
+        square.innerText = "X";
+        
+        //Register attack on hitlist
+        this.fieldsHit.push(coordinates);
+        console.log(this.fieldsHit);
+
+        this.receiveAttack(coordinates);
     }
 }
