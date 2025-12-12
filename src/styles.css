@@ -1,7 +1,12 @@
 body {
-    background-color: navy;
+    background-color:rgb(0, 0, 0);
     display: flex;
     flex-direction: column;
+}
+
+h1, h2 {
+    font-family: monospace;
+    color: rgb(49, 46, 45);
 }
 
 main {
@@ -14,13 +19,23 @@ main {
     aspect-ratio: 1;
     display: flex;
     flex-wrap: wrap;
-    border: solid 1px salmon;
+    border: solid 4px rgb(49, 46, 45);
+    border-radius: 4px;
 }
 
 .gameboard>.field {
-    width: 20%;
+    width: 10%;
     aspect-ratio: 1;
-    -webkit-box-shadow:inset 0px 0px 0px 1px salmon;
-    -moz-box-shadow:inset 0px 0px 0px 1px salmon;
-    box-shadow:inset 0px 0px 0px 1px salmon;
+    -webkit-box-shadow:inset 0px 0px 0px 1px rgb(49, 46, 45);
+    -moz-box-shadow:inset 0px 0px 0px 1px rgb(49, 46, 45);
+    box-shadow:inset 0px 0px 0px 1px rgb(49, 46, 45);
+
+    font-family: monospace;
+    color: bisque;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: 100;
+
 }

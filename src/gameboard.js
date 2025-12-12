@@ -14,7 +14,7 @@ export class Gameboard {
         const newBoard = document.querySelector(`.gameboard.${this.owner}`)
 
         //Populate with squares
-        for (let i = 0; i < this.fieldAmount; i++) {
+        for (let i = 1; i < this.fieldAmount; i++) {
             let newSquare = document.createElement("div");
             newSquare.className = "field";
             newSquare.id = `${i}`;
@@ -22,7 +22,7 @@ export class Gameboard {
             newBoard.appendChild(newSquare);
         }
     }
-    
+
     placeShip(owner) {
         //Push new ships to fleet
         //Check fleet length to see which boats are next

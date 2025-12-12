@@ -1,4 +1,8 @@
 import "./styles.css";
-import { gameBoard } from "./gameboard.js";
+import { Gameboard } from "./gameboard.js";
 
-console.log(gameBoard);
+const playerOne = new Gameboard("player");
+
+playerOne.boardLoader();
+
+console.log(playerOne);

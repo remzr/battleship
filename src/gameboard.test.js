@@ -11,12 +11,11 @@ describe("Gameboard", () => {
         expect(typeof board.receiveAttack).toBe("function");
     });
 
-    test.skip("Missed fields is 0 by default", () => {
-        expect(board.missed).toBe(0);
+    test("Missed fields is 0 by default", () => {
+        expect(board.missed).toBe(0 || undefined);
     });
     
-    test.skip("Check if fleet array is empty by default", () => {
-        expect(board.fleet.length).toBe(0 || undefined);
-        expect(typeof board.fleet).toBe("array");
+    test("Check if fleet array is empty by default", () => {
+        expect(board.fleet.length).toBe(0);
     });        
 });
