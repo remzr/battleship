@@ -14,12 +14,12 @@ export class Gameboard {
         const newBoard = document.querySelector(`.gameboard.${this.owner}`)
 
         //Populate with squares
-        for (let i = 1; i < this.fieldAmount; i++) {
+        for (let i = 1; i <= this.fieldAmount; i++) {
             let newSquare = document.createElement("div");
             newSquare.className = "field";
             newSquare.id = `${i}`;
             newSquare.innerText = "O";
-            newBoard.appendChild(newSquare);
+            newBoard.appendChild(newSquare);           
         }
     }
 
@@ -57,7 +57,7 @@ export class Gameboard {
     squareMarker(coordinates) {
         //Select square
         const square = document.getElementById(coordinates);
-
-        square.innerText = "X";
+        console.log(coordinates);
+        //square.innerText = "X";
     }
 }
