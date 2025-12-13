@@ -14,13 +14,23 @@ export class Gameboard {
         //Get gameboard canvas
         const newBoard = document.querySelector(`.gameboard.${this.owner}`)
 
+        //Delete existing child elements
+
+
         //Populate with squares
         for (let i = 1; i <= this.fieldAmount; i++) {
             let newSquare = document.createElement("div");
             newSquare.className = "field";
             newSquare.id = `${i}`;
             newSquare.innerText = "O";
-            newBoard.appendChild(newSquare);           
+            
+            //Check if field is ship and add class if yes
+            if (this.fleet.some(ship => ship.coordinates.includes(i))) {
+                newSquare.className = "field ship";
+                console.log("called" + i)
+            }
+
+            newBoard.appendChild(newSquare);
         }
     }
 
