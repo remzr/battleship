@@ -23,7 +23,7 @@ export class Gameboard {
         //Check for sunken ships and get their coordinates
         this.fleet.forEach((element) => {
             if (element.sunk == true) {
-                element.coordinates.concat(this.fieldsSunk);
+                this.fieldsSunk.push(...element.coordinates);
             }
         });
 
@@ -46,7 +46,7 @@ export class Gameboard {
             }
 
             //Mark field if ship is sunk
-            if (this.fieldsSunk.includes(`${i}`)) {
+            if (this.fieldsSunk.includes(i)) {
                 newSquare.className = "field ship sunk";
             }
 
@@ -56,8 +56,9 @@ export class Gameboard {
             }
 
             newBoard.appendChild(newSquare);
-
         }
+        console.log(this.fleet)
+        console.log(this);
     }
 
    createFleet(owner) {
