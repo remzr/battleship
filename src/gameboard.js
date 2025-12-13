@@ -5,6 +5,7 @@ export class Gameboard {
     fieldsHit = [];
     fieldsTaken = [];
     fleet = [];
+    fieldsSunk = [];
 
     constructor(owner) {
         this.owner = owner;
@@ -15,9 +16,18 @@ export class Gameboard {
         const newBoard = document.querySelector(`.gameboard.${this.owner}`)
 
         //Delete existing child elements
+        while (newBoard.hasChildNodes()) {
+            newBoard.removeChild(newBoard.firstChild);
+        }
 
+        //Check for sunken ships and get their coordinates
+        this.fleet.forEach((element) => {
+            if (element.sunk == true) {
+                element.coordinates.concat(this.fieldsSunk);
+            }
+        });
 
-        //Populate with squares
+        //Populate gameboard
         for (let i = 1; i <= this.fieldAmount; i++) {
             let newSquare = document.createElement("div");
             newSquare.className = "field";
@@ -27,10 +37,26 @@ export class Gameboard {
             //Check if field is ship and add class if yes
             if (this.fleet.some(ship => ship.coordinates.includes(i))) {
                 newSquare.className = "field ship";
-                console.log("called" + i)
+            }
+
+            //Check if field is ship AND is hit and add hit-class
+            if (this.fleet.some(ship => ship.coordinates.includes(i) &&
+                this.fieldsHit.some(hits => hits.includes(i)))) {
+                newSquare.className = "field ship hit";
+            }
+
+            //Mark field if ship is sunk
+            if (this.fieldsSunk.includes(`${i}`)) {
+                newSquare.className = "field ship sunk";
+            }
+
+            //Check if field is marked and place X
+            if (this.fieldsHit.includes(`${i}`)) {
+                newSquare.innerText = "X";
             }
 
             newBoard.appendChild(newSquare);
+
         }
     }
 
@@ -120,24 +146,24 @@ export class Gameboard {
         }
     }*/
 
-    receiveAttack(coordinates) {
-        //Check if
-        if (this.fleet.includes(coordinates) == true) {
-            console.log("Its a hit!")
-        } else {
-            console.log("Its a miss...")
-        }
+    receiveAttack(coords) {
+        //Check which ship is placed on the coordinates and trigger its gotHit Function
+
+        this.fleet.forEach((element) => {
+            if (element.coordinates.includes(+coords) == true) {
+                element.gotHit();
+                console.log("Its a hit!")
+            }
+        })
     }
 
     squareMarker(coordinates) {
-        //Select square
-        const square = document.getElementById(`${coordinates}`);
-        square.innerText = "X";
-        
+       
         //Register attack on hitlist
         this.fieldsHit.push(coordinates);
-        console.log(this.fieldsHit);
 
         this.receiveAttack(coordinates);
+        //Reload board
+        this.boardLoader();
     }
 }

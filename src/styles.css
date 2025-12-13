@@ -42,3 +42,11 @@ main {
 .gameboard>.field.ship {
     background-color: darkgrey;
 }
+
+.gameboard>.field.ship.hit {
+    color: rgb(133, 35, 35);
+}
+
+.gameboard>.field.ship.sunk {
+    background-color: rgb(201, 65, 65);
+}
