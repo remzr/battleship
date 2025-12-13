@@ -3,7 +3,8 @@ import { Ship } from "./ships";
 export class Gameboard {
     fieldAmount = 100;
     fieldsHit = [];
-    fleet = ["1","100","10","20"];
+    fieldsTaken = [];
+    fleet = [];
 
     constructor(owner) {
         this.owner = owner;
@@ -23,7 +24,14 @@ export class Gameboard {
         }
     }
 
-    placeShip(owner) {
+    placeShips(owner) {
+        for (let i = 5; i >= 1; i--) {
+            this.fleet.push(new Ship(i, owner));
+        }
+        console.log(this.fleet);
+    }
+
+    /*placeShip(owner) {    //For later use to place single ships
         //Push new ships to fleet
         //Check fleet length to see which boats are next
         switch (this.fleet.length) {
@@ -45,7 +53,7 @@ export class Gameboard {
             case 0:
                 console.log(`${this.owner}s Ships are built.`)
         }
-    }
+    }*/
 
     receiveAttack(coordinates) {
         //Check if
