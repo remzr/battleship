@@ -49,11 +49,41 @@ export class Gameboard {
             let randomCoordinate = Math.floor(Math.random() * this.fieldAmount);
             this.fieldsTaken.push(randomCoordinate);
             return randomCoordinate;
+        //Place horizontal boats
         } else if (direction == 0) {
-            ship.coordinates[0]
-        }
+            let nextCoordinate = ship.coordinates[digit - 1];
+            
+            //Check if starting point is on the left side of the field
+            if (ship.coordinates[0] >= 0 && ship.coordinates[0] <= 5 ||
+                ship.coordinates[0] >= 10 && ship.coordinates[0] <= 15 ||
+                ship.coordinates[0] >= 20 && ship.coordinates[0] <= 25 ||
+                ship.coordinates[0] >= 30 && ship.coordinates[0] <= 35 ||
+                ship.coordinates[0] >= 40 && ship.coordinates[0] <= 45 ||
+                ship.coordinates[0] >= 50 && ship.coordinates[0] <= 55 ||
+                ship.coordinates[0] >= 60 && ship.coordinates[0] <= 65 ||
+                ship.coordinates[0] >= 70 && ship.coordinates[0] <= 75 ||
+                ship.coordinates[0] >= 80 && ship.coordinates[0] <= 85 ||
+                ship.coordinates[0] >= 90 && ship.coordinates[0] <= 95) {
+                nextCoordinate = nextCoordinate + 1;
+                return nextCoordinate;
+            } else {
+                nextCoordinate = nextCoordinate - 1;
+                return nextCoordinate;
+            }
+        //Place vertical boats
+        } else if (direction == 1) {
+            let nextCoordinate = ship.coordinates[digit - 1];
+            //Check if starting point is in upper half of the field
+            if (ship.coordinates[0] <= (this.fieldAmount / 2)) {          
+                nextCoordinate = nextCoordinate + 10;
+                return nextCoordinate;
+            } else {
+                nextCoordinate = nextCoordinate - 10;
+                return nextCoordinate;            
+            }
         }
     }
+    
 
 
     /*placeShip(owner) {    //For later use to place single ships
