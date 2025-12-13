@@ -35,13 +35,24 @@ export class Gameboard {
     }
 
     placeShip(ship) {
+        //Randomly choose ship direction: 0 = horizontal, 1 = vertical
+        let shipDirection = Math.floor(Math.random() * 2)
+
         for (let i = 0; i < ship.length; i++) {
-            ship.coordinates.push(this.getValidFields());
+            ship.coordinates.push(this.getValidFields(i, shipDirection, ship));
         }
     }
 
-    getValidFields() {
-        return Math.floor(Math.random() * this.fieldAmount);
+    getValidFields(digit, direction, ship) {
+        //Create unique starting point, the first time this is called
+        if (digit == 0) {
+            let randomCoordinate = Math.floor(Math.random() * this.fieldAmount);
+            this.fieldsTaken.push(randomCoordinate);
+            return randomCoordinate;
+        } else if (direction == 0) {
+            ship.coordinates[0]
+        }
+        }
     }
 
 
