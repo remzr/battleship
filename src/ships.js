@@ -1,6 +1,8 @@
 export class Ship {
     sunk = false;
     hits = 0;
+    coordinates = [];
+    
     constructor(length, owner) {
         this.length = length;
         this.owner = owner;

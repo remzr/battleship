@@ -24,12 +24,26 @@ export class Gameboard {
         }
     }
 
-    placeShips(owner) {
+   createFleet(owner) {
         for (let i = 5; i >= 1; i--) {
-            this.fleet.push(new Ship(i, owner));
+            let newShip = new Ship(i, owner);
+            this.fleet.push(newShip);
+
+            this.placeShip(newShip);
         }
         console.log(this.fleet);
     }
+
+    placeShip(ship) {
+        for (let i = 0; i < ship.length; i++) {
+            ship.coordinates.push(this.getValidFields());
+        }
+    }
+
+    getValidFields() {
+        return Math.floor(Math.random() * this.fieldAmount);
+    }
+
 
     /*placeShip(owner) {    //For later use to place single ships
         //Push new ships to fleet

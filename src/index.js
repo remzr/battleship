@@ -4,7 +4,7 @@ import { Gameboard } from "./gameboard.js";
 const playerOne = new Gameboard("player");
 
 playerOne.boardLoader();
-playerOne.placeShips("player");
+playerOne.createFleet("player");
 
 //Chose players gameboard for now -> later event handlers are needed on enemy board
 document.querySelector(".gameboard.player").addEventListener("click", function(e) {
